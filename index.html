@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolution.New London · Onboarding map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFFFF;
+  --bg-off: #F7F6F3;
+  --bg-dark: #141414;
+  --bg-deep: #0A0A0A;
+  --text: #1A1A1A;
+  --text-soft: #5A5A5A;
+  --text-mute: #9B9B9B;
+  --text-light: #FAFAF8;
+  --text-light-soft: rgba(250, 250, 248, 0.62);
+  --text-light-mute: rgba(250, 250, 248, 0.38);
+  --line: #EAE8E2;
+  --line-soft: #F0EEE8;
+  --accent: #A89070;
+  --accent-soft: #C8B894;
+  --accent-on-dark: #C8B894;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+}
+
+.container { max-width: 820px; margin: 0 auto; padding: 0 32px; }
+.container-narrow { max-width: 680px; margin: 0 auto; padding: 0 32px; }
+
+/* HERO */
+.hero {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 96px 32px 82px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 40px; height: 1px;
+  background: var(--accent-on-dark);
+  opacity: 0.5;
+}
+.hero-inner { max-width: 820px; margin: 0 auto; position: relative; }
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent-on-dark);
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(200, 184, 148, 0.4);
+  margin-bottom: 36px;
+}
+.hero h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 68px;
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  letter-spacing: -0.035em;
+}
+.hero-lead {
+  font-size: 17px;
+  color: var(--text-light-soft);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  max-width: 460px;
+  line-height: 1.52;
+}
+
+/* SECTION */
+section { padding: 78px 0; }
+section + section:not(.no-divider) { border-top: 1px solid var(--line); }
+
+.section-tag {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+section h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 46px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+.lead {
+  font-size: 16px;
+  color: var(--text-soft);
+  margin-bottom: 38px;
+  max-width: 560px;
+  line-height: 1.58;
+}
+
+/* INTRO */
+.intro { padding: 72px 0 56px; }
+.intro p {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text);
+  max-width: 620px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.intro p + p { margin-top: 12px; color: var(--text-soft); }
+
+/* METRICS */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.metric {
+  padding: 30px 24px;
+  border-right: 1px solid var(--line);
+}
+.metric:last-child { border-right: none; }
+.metric-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.metric-value {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 10px;
+  letter-spacing: -0.015em;
+}
+.metric-detail {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.metric-detail .line { display: block; }
+.metric-detail .line + .line { margin-top: 4px; }
+
+/* TIMELINE */
+.timeline-wrapper {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  margin-top: 4px;
+}
+.timeline-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+}
+.step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 400;
+  flex-shrink: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+.step-num.final {
+  background: var(--text);
+  color: var(--text-light);
+  border-color: var(--text);
+}
+.rail-line {
+  width: 1px;
+  flex: 1;
+  background: var(--line);
+  margin: 10px 0;
+  min-height: 36px;
+}
+.timeline-cards { display: flex; flex-direction: column; gap: 18px; padding-bottom: 4px; }
+.timeline-card {
+  padding: 2px 0 18px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.timeline-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.card-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.card-text {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* DATES */
+.dates-section { background: var(--bg-off); }
+.scenarios { display: flex; flex-direction: column; gap: 0; margin-top: 4px; border-top: 1px solid var(--line); }
+.scenario-block {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+.scenario-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.scenario-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.scenario-tag {
+  font-size: 12px;
+  color: var(--text-mute);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+}
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.module-card {
+  background: var(--bg);
+  padding: 16px 12px;
+  text-align: center;
+}
+.module-card.start { background: var(--text); color: var(--text-light); }
+.module-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.module-card.start .module-label { color: var(--accent-on-dark); }
+.module-date {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.module-card.start .module-date { color: var(--text-light); }
+
+.dates-note {
+  margin-top: 28px;
+  font-size: 14px;
+  color: var(--text-soft);
+  text-align: center;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 16px;
+}
+
+/* CLOSING */
+.closing {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 78px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.closing::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 40px; height: 1px;
+  background: var(--accent-on-dark);
+  opacity: 0.5;
+}
+.closing-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent-on-dark);
+  margin-bottom: 22px;
+  margin-top: 8px;
+}
+.closing h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 18px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.closing-text {
+  font-size: 17px;
+  color: var(--text-light-soft);
+  max-width: 500px;
+  margin: 0 auto 34px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  line-height: 1.5;
+}
+.closing-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(200, 184, 148, 0.25);
+  font-size: 12px;
+  color: var(--text-light-mute);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.closing-meta strong {
+  color: var(--text-light);
+  font-weight: 400;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+.closing-meta .dot { color: var(--accent-on-dark); }
+
+/* FOOTER */
+footer {
+  background: var(--bg-deep);
+  color: var(--text-light-mute);
+  padding: 24px 0;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+footer .dot { color: var(--accent-on-dark); margin: 0 12px; }
+
+/* PRINT */
+@media print {
+  body { background: white; font-size: 11pt; line-height: 1.5; }
+  .hero { background: white; color: var(--text); padding: 30pt 0; border-bottom: 1pt solid var(--text); }
+  .hero h1 { color: var(--text); font-size: 48pt; }
+  .hero-tag { color: var(--accent); border-color: var(--accent); }
+  .hero-lead { color: var(--text-soft); }
+  section { padding: 24pt 0; page-break-inside: auto; }
+  .timeline-card { page-break-inside: avoid; }
+  .scenario-block { page-break-inside: avoid; }
+  .dates-section { background: white; }
+  .closing { background: white; color: var(--text); padding: 30pt 0; border-top: 1pt solid var(--text); }
+  .closing h3 { color: var(--text); }
+  .closing-text { color: var(--text-soft); }
+  .closing-meta { color: var(--text-mute); border-color: var(--accent); }
+  .closing-meta strong { color: var(--text); }
+  .closing-tag { color: var(--accent); }
+  .module-card.start { background: var(--text) !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .step-num.final { background: var(--text) !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  footer { background: white; color: var(--text-mute); border-top: 1pt solid var(--line); }
+}
+
+/* MOBILE */
+@media (max-width: 720px) {
+  .hero { padding: 68px 24px 56px; }
+  .hero h1 { font-size: 44px; }
+  .hero-tag { margin-bottom: 26px; }
+  .hero-lead { font-size: 17px; }
+  .container, .container-narrow { padding: 0 24px; }
+  section { padding: 56px 0; }
+  section h2 { font-size: 36px; }
+  .intro { padding: 56px 0 42px; }
+  .intro p { font-size: 19px; }
+  .metrics { grid-template-columns: 1fr; }
+  .metric { border-right: none; border-bottom: 1px solid var(--line); }
+  .metric:last-child { border-bottom: none; }
+  .timeline-wrapper { grid-template-columns: 40px 1fr; gap: 20px; }
+  .step-num { width: 30px; height: 30px; font-size: 12px; }
+  .card-title { font-size: 22px; }
+  .scenario-name { font-size: 22px; }
+  .modules-grid { grid-template-columns: repeat(2, 1fr); }
+  .closing { padding: 64px 24px; }
+  .closing h3 { font-size: 32px; }
+  .closing-meta { flex-direction: column; gap: 12px; }
+  .closing-meta .dot { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">Evolution.New · London · 2026-2027</span>
+    <h1>Onboarding map</h1>
+    <p class="hero-lead">Подготовка и точки старта.</p>
+  </div>
+</header>
+
+<section class="intro no-divider">
+  <div class="container">
+    <p>После интервью и решения идти ты делаешь первый взнос и присоединяешься к группе. Дальше начинается подготовительная работа: знакомство с группой, Hogan Assessment, индивидуальный дебрифинг и Vision-сессия.</p>
+    <p>Когда в группе соберётся 20 человек, программа стартует в ближайшее окно.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-tag">Что входит</span>
+    <h2>Первый взнос - 1 500 £</h2>
+    <p class="lead">Эта сумма закрепляет за тобой место в группе. А ещё в неё входит:</p>
+    <div class="metrics">
+      <div class="metric">
+        <span class="metric-label">Групповая сессия</span>
+        <span class="metric-value">Hogan<br>Assessment</span>
+        <p class="metric-detail">4-5 часов онлайн</p>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Индивидуально</span>
+        <span class="metric-value">Дебрифинг<br>Hogan</span>
+        <p class="metric-detail">1,5 часа онлайн</p>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Индивидуально</span>
+        <span class="metric-value">Vision-сессия</span>
+        <p class="metric-detail">1 час онлайн</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-tag">Подготовка</span>
+    <h2>Этапы пути</h2>
+    <p class="lead">Эти этапы ты проходишь между интервью и стартом программы. Они идут последовательно, по мере того как формируется группа.</p>
+
+    <div class="timeline-wrapper">
+      <div class="timeline-rail">
+        <div class="step-num">1</div>
+        <div class="rail-line"></div>
+        <div class="step-num">2</div>
+        <div class="rail-line"></div>
+        <div class="step-num">3</div>
+        <div class="rail-line"></div>
+        <div class="step-num">4</div>
+      </div>
+      <div class="timeline-cards">
+        <div class="timeline-card">
+          <h3 class="card-title">Первый шаг</h3>
+          <p class="card-text">Подписываешь договор, заполняешь короткий опросник, делаешь взнос 1 500 £. Ты в группе.</p>
+        </div>
+        <div class="timeline-card">
+          <h3 class="card-title">Знакомство группы и Hogan Assessment</h3>
+          <p class="card-text">Когда в группе соберётся 8-10 человек, проводим групповую практику онлайн на 4-5 часов: работа с Hogan-отчётами и знакомство с инструментом Hogan Assessment.</p>
+        </div>
+        <div class="timeline-card">
+          <h3 class="card-title">Индивидуальный дебрифинг по Hogan</h3>
+          <p class="card-text">Один на один с партнером, 1,5 часа онлайн. Дебрифинг переводит твой Hogan-отчёт на язык реальной работы и жизни: где сильные стороны, какие паттерны включаются под стрессом, какие слепые зоны видны со стороны. Без дебрифинга это шкалы; с дебрифингом - карта, с которой ты идёшь в программу.</p>
+        </div>
+        <div class="timeline-card">
+          <h3 class="card-title">Vision-сессия</h3>
+          <p class="card-text">Один на один с партнером, 1 час. Формулируем твоё намерение на год: главный вопрос, с которым ты идёшь в программу, что должно измениться, как ты поймёшь, что это случилось. На выходе - опорный документ, к которому возвращаешься на каждом модуле.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dates-section">
+  <div class="container">
+    <span class="section-tag">Расписание</span>
+    <h2>Точки старта</h2>
+    <p class="lead">Программа запускается, когда в группе собирается 20 человек. Если к ближайшей точке группа не собралась, сбор продолжается до следующей. Расписание программы зависит от того, к какой точке наберётся группа.</p>
+
+    <div class="scenarios">
+      <div class="scenario-block">
+        <div class="scenario-head">
+          <span class="scenario-name">Если стартуем в августе</span>
+        </div>
+        <div class="modules-grid">
+          <div class="module-card start"><p class="module-label">модуль 1</p><p class="module-date">14-16 авг 2026</p></div>
+          <div class="module-card"><p class="module-label">модуль 2</p><p class="module-date">2-4 окт 2026</p></div>
+          <div class="module-card"><p class="module-label">модуль 3</p><p class="module-date">4-6 дек 2026</p></div>
+          <div class="module-card"><p class="module-label">модуль 4</p><p class="module-date">5-7 фев 2027</p></div>
+          <div class="module-card"><p class="module-label">модуль 5</p><p class="module-date">9-11 апр 2027</p></div>
+        </div>
+      </div>
+
+      <div class="scenario-block">
+        <div class="scenario-head">
+          <span class="scenario-name">Если стартуем в октябре</span>
+        </div>
+        <div class="modules-grid">
+          <div class="module-card start"><p class="module-label">модуль 1</p><p class="module-date">2-4 окт 2026</p></div>
+          <div class="module-card"><p class="module-label">модуль 2</p><p class="module-date">4-6 дек 2026</p></div>
+          <div class="module-card"><p class="module-label">модуль 3</p><p class="module-date">5-7 фев 2027</p></div>
+          <div class="module-card"><p class="module-label">модуль 4</p><p class="module-date">9-11 апр 2027</p></div>
+          <div class="module-card"><p class="module-label">модуль 5</p><p class="module-date">25-27 июн 2027</p></div>
+        </div>
+      </div>
+
+      <div class="scenario-block">
+        <div class="scenario-head">
+          <span class="scenario-name">Если стартуем в декабре</span>
+        </div>
+        <div class="modules-grid">
+          <div class="module-card start"><p class="module-label">модуль 1</p><p class="module-date">4-6 дек 2026</p></div>
+          <div class="module-card"><p class="module-label">модуль 2</p><p class="module-date">5-7 фев 2027</p></div>
+          <div class="module-card"><p class="module-label">модуль 3</p><p class="module-date">9-11 апр 2027</p></div>
+          <div class="module-card"><p class="module-label">модуль 4</p><p class="module-date">25-27 июн 2027</p></div>
+          <div class="module-card"><p class="module-label">модуль 5</p><p class="module-date">13-15 авг 2027</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing no-divider">
+  <span class="closing-tag">Дальше</span>
+  <h3>Старт первого модуля<br>в Лондоне</h3>
+  <p class="closing-text">Когда группа набралась, ты приходишь не как один из двадцати незнакомцев. Ты приходишь со своим Hogan, со своим намерением, и в группу, которую уже знаешь.</p>
+  <div class="closing-meta">
+    <span>Полная стоимость программы</span>
+    <span class="dot">·</span>
+    <strong>20 000 £</strong>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>Evolution.New</span>
+    <span class="dot">·</span>
+    <span>London 2026-2027</span>
+  </div>
+</footer>
+
+</body>
+</html>
